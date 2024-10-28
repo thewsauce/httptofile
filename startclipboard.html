@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL to File Protocol Converter</title>
+</head>
+<body>
+
+  <h2>Convert URL to File Protocol</h2>
+  
+  <!-- Input field for the URL -->
+  <label for="urlInput">Enter URL:</label>
+  <input type="text" id="urlInput" placeholder="https://example.com/path/to/file">
+  
+  <!-- Button to convert the URL -->
+  <button onclick="convertUrl()">Convert and Copy</button>
+  
+  <!-- Output area for the converted URL -->
+  <p>Converted URL:</p>
+  <input type="text" id="outputUrl" readonly>
+
+  <script>
+    function convertUrl() {
+      // Get the URL from the input field
+      const url = document.getElementById("urlInput").value;
+      
+      // Replace https:// or http:// with file://///
+      const fileUrl = url.replace(/^https?:\/\//, 'file://///');
+      
+      // Display the converted URL in the output field
+      const outputField = document.getElementById("outputUrl");
+      outputField.value = fileUrl;
+
+      // Copy the converted URL to the clipboard
+      outputField.select();
+      document.execCommand("copy");
+
+      // Optional: Notify the user that the link has been copied
+      alert("Converted URL copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
