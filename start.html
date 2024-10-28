@@ -11,7 +11,7 @@
   
   <!-- Input field for the URL -->
   <label for="urlInput">Enter URL:</label>
-  <input type="text" id="urlInput" placeholder="https://example/path/to/file">
+  <input type="text" id="urlInput" placeholder="http://example/path/to/file">
   
   <!-- Button to open the converted file URL -->
   <button onclick="openFileUrl()">Open Link</button>
@@ -22,7 +22,7 @@
       const url = document.getElementById("urlInput").value;
       
       // Replace https:// or http:// with file://///
-      const fileUrl = url.replace(/^https?:\/\//, 'file://///');
+      const fileUrl = url.replace(/^http?:\/\//, 'file://///');
       
       // Open the new file URL in a new tab or window
       window.open(fileUrl);
