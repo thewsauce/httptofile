@@ -22,7 +22,7 @@
       const url = document.getElementById("urlInput").value;
       
       // Replace https:// or http:// with file://///
-      const fileUrl = url.replace(/^http?:\/\//, 'file://///');
+      const fileUrl = url.replace(/^http:\/\//, 'file://///');
       
       // Open the new file URL in a new tab or window
       window.open(fileUrl);
