@@ -16,9 +16,9 @@
   <!-- Button to convert the URL -->
   <button onclick="convertUrl()">Convert and Copy</button>
   
-  <!-- Output area for the converted clickable URL -->
+  <!-- Output area for the converted URL -->
   <p>Converted URL:</p>
-  <a id="outputLink" href="#" target="_blank">Click here for the converted link</a>
+  <input type="text" id="outputUrl" readonly>
 
   <script>
     function convertUrl() {
@@ -28,20 +28,16 @@
       // Replace https:// or http:// with file://///
       const fileUrl = url.replace(/^https?:\/\//, 'file://///');
       
-      // Update the clickable link's href attribute and display text
-      const outputLink = document.getElementById("outputLink");
-      outputLink.href = fileUrl;
-      outputLink.textContent = fileUrl;
+      // Display the converted URL in the output field
+      const outputField = document.getElementById("outputUrl");
+      outputField.value = fileUrl;
 
       // Copy the converted URL to the clipboard
-      navigator.clipboard.writeText(fileUrl)
-        .then(() => {
-          // Notify the user that the link has been copied
-          alert("Converted URL copied to clipboard!");
-        })
-        .catch(err => {
-          console.error("Failed to copy: ", err);
-        });
+      outputField.select();
+      document.execCommand("copy");
+
+      // Optional: Notify the user that the link has been copied
+      alert("Converted URL copied to clipboard!");
     }
   </script>
 </body>
