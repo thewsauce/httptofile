@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL to File Protocol Converter</title>
+</head>
+<body>
+
+  <h2>Convert and Open URL as File</h2>
+  
+  <!-- Input field for the URL -->
+  <label for="urlInput">Enter URL:</label>
+  <input type="text" id="urlInput" placeholder="https://example/path/to/file">
+  
+  <!-- Button to open the converted file URL -->
+  <button onclick="openFileUrl()">Open Link</button>
+  
+  <script>
+    function openFileUrl() {
+      // Get the URL from the input field
+      const url = document.getElementById("urlInput").value;
+      
+      // Replace https:// or http:// with file://///
+      const fileUrl = url.replace(/^https?:\/\//, 'file://///');
+      
+      // Open the new file URL in a new tab or window
+      window.open(fileUrl);
+    }
+  </script>
+</body>
+</html>
